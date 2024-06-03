@@ -10,7 +10,7 @@ application = Flask(__name__)
 CORS(application)  # Enable CORS for all routes
 
 # Load ONNX model
-onnx_model_path = r'trained_model.onnx'
+onnx_model_path = r'/trained_model.onnx'
 ort_session = ort.InferenceSession(onnx_model_path)
 
 def preprocess_image(image):
