@@ -10,7 +10,7 @@ application = Flask(__name__)
 CORS(application)  # Enable CORS for all routes
 
 # Load ONNX model
-onnx_model_path = r'/trained_model.onnx'
+onnx_model_path = '/trained_model.onnx'
 ort_session = ort.InferenceSession(onnx_model_path)
 
 def preprocess_image(image):
@@ -54,9 +54,8 @@ def predict_route():
         return jsonify({'error': 'Failed to encode image'}), 500
     
     io_buf = io.BytesIO(buffer)
-    io_buf.seek(0)  # Seek to the start of the stream
 
     return send_file(io_buf, mimetype='image/png')
 
 if __name__ == '__main__':
-    application.run(host='0.0.0.0', port=8000, debug=True)  # Enable debug mode
+    application.run(host='0.0.0.0', port=8000)
