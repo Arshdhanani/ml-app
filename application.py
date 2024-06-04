@@ -58,4 +58,4 @@ def predict_route():
     return send_file(io_buf, mimetype='image/png')
 
 if __name__ == '__main__':
-    application.run(host='0.0.0.0', port=8000)
+    application.run(host='0.0.0.0')
